@@ -14,7 +14,7 @@ x_remove_packages wolfram-engine lxplug-ptbatt
 
 FILES="
   xbindkeys x11vnc xosd-bin ssvnc xdotool solaar gparted clonezilla 
-  sysbench guvcview gimp mpv
+  sysbench guvcview gimp mpv tv-fonts
 "
 
 x_install_packages $FILES
