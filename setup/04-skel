@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $(dirname $0)/00-lib || exit 1;
+
+cp -auv ../skel/. $HOME

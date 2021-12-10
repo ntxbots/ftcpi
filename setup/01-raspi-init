@@ -1,0 +1,26 @@
+#!/bin/bash
+
+source $(dirname $0)/00-lib || exit 1;
+
+while read line
+do
+  x_addline "$line" $HOME/.bash_aliases
+done <<'END_BASHALIASES'
+export PATH="$HOME/bin:$PATH"
+alias mvi='mv -i'
+END_BASHALIASES
+
+x_remove_packages wolfram-engine lxplug-ptbatt
+
+FILES="
+  xbindkeys x11vnc xosd-bin ssvnc xdotool solaar gparted clonezilla 
+  sysbench guvcview gimp mpv
+"
+
+x_install_packages $FILES
+
+if update-alternatives --display editor | grep -qs "auto mode" 
+then
+  echo "Switching default editor to /usr/bin/vim.tiny"
+  sudo update-alternatives --set editor /usr/bin/vim.tiny
+fi

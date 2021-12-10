@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source $(dirname $0)/00-lib || exit 1
+
+for i in Documents Music Pictures Public Templates Videos
+do
+  [ -d $HOME/$i ] && { echo "Removing $HOME/$i"; rmdir $HOME/$i; }
+done
+[ -d $HOME/MagPi ] && { echo "Removing $HOME/MagPi"; rm -rf $HOME/MagPi; }
+

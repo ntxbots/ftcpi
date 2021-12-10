@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source $(dirname $0)/00-lib || exit 1
+
+cd $HOME
+sudo pip install rpi-ws281x
+if ! [ -d rpi-ws281x-python ]
+then
+  echo "Cloning rpi-ws281x-python from github"
+  git clone https://github.com/rpi-ws281x/rpi-ws281x-python
+fi
+

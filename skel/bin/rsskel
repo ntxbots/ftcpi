@@ -1,0 +1,5 @@
+#!/bin/bash
+
+RSYNC_SSH='-e "ssh -p 443"'
+
+rsync -auv --existing $HOME/. pmichaud@kiwi:/peach/share/systems/rpi/skel || { echo 'skel backup failed'; exit 1; }

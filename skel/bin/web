@@ -1,0 +1,4 @@
+#!/bin/bash
+
+perl -pi -e 's/exit_type":"Crashed/exit_type":"Normal/' ~/.config/chromium/Default/Preferences
+exec chromium-browser $*

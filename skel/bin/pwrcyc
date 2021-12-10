@@ -1,0 +1,17 @@
+#!/bin/bash
+
+TARGET=8.8.8.8
+
+gpio -1 mode 16 output
+gpio -1 write 16 0
+
+if ! ping -c 1 -W 120 $TARGET
+then
+  echo "No ping answer from $TARGET... cycling router power for 10 seconds"
+  gpio -1 mode 16 output
+  gpio -1 write 16 1
+  sleep 10
+  echo "Re-enabling router"
+fi
+gpio -1 write 16 0
+sleep 2

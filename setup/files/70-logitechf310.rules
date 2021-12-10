@@ -1,0 +1,1 @@
+ACTION=="add", ENV{ID_VENDOR}=="Logitech", ENV{ID_MODEL}=="Gamepad_F310", RUN+="/sbin/runuser - pi /home/pi/bin/qjoypad.sh"

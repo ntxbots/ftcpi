@@ -1,0 +1,47 @@
+#!/bin/bash
+
+PMKITSETUP=$(dirname $0)
+
+[ "$EUID" == 0 ] &&
+  { echo "Execute this script without superuser privileges"; exit 1; }
+
+function x_addline() {
+  if ! grep -q -F -x "$1" "$2"
+  then
+    echo "Adding line to $2"
+    echo "$1" >> "$2"
+  fi
+}
+
+function x_sudo_addline() {
+  if ! grep -q -F -x "$1" "$2"
+  then
+    echo "Adding line to $2"
+    echo "$1" | sudo tee -a "$2" ;
+  fi
+}
+
+function x_package_installed() {
+  dpkg --status $1 2>/dev/null | grep -q installed
+}
+
+function x_install_packages() {
+  PKGS=""
+  while [ -n "$1" ]
+  do
+    x_package_installed $1 || PKGS="$PKGS $1"
+    shift
+  done
+  [ -n "$PKGS" ] && sudo apt install $PKGS
+}
+
+function x_remove_packages() {
+  PKGS=""
+  while [ -n "$1" ]
+  do
+    x_package_installed $1 && PKGS="$PKGS $1"
+    shift
+  done
+  [ -n "$PKGS" ] && sudo apt remove $PKGS
+}
+

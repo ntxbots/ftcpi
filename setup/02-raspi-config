@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# see http://github.com/raspberrypi-ui/rc_gui/blob/master/src/rc_gui.c
+# for a list of available raspi-config commands
+
+source $(dirname $0)/00-lib || exit 1;
+
+while read cmd arg1 rest
+do
+  echo sudo raspi-config nonint $cmd $arg1
+  sudo raspi-config nonint $cmd $arg1
+done <<RASPI_CONFIG_END
+do_blanking 1
+do_boot_splash 1
+RASPI_CONFIG_END
+
+LIGHTDM=/etc/lightdm/lightdm.conf
+if grep -q "^#xserver-command=X" $LIGHTDM
+then
+  echo "Disabling screen blanking in $LIGHTDM";
+  sudo perl -n -p -i -e '
+    s/^\#xserver-command=.*/xserver-command=X -s 0/;
+  ' $LIGHTDM
+fi
+
+
