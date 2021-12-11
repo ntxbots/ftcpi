@@ -2,5 +2,5 @@
 
 while true
 do
-  hostname -I | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' | osd_cat --pos=bottom --align=right --offset=0 --indent=40 --color=grey50 --font='-*-*-*-r-*-*-26-*-*-*-*-*-*-*' --delay=10 --lines=2
+  hostname -I | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' | osd_cat --pos=bottom --align=right --offset=0 --indent=40 --color=grey50 --font='-*-*-*-r-*-*-26-*-*-*-*-*-*-*' --delay=30 --lines=2
 done
