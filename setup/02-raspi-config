@@ -12,6 +12,7 @@ do
 done <<RASPI_CONFIG_END
 do_blanking 1
 do_boot_splash 1
+do_ssh 0
 RASPI_CONFIG_END
 
 LIGHTDM=/etc/lightdm/lightdm.conf
