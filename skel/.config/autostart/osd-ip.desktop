@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=OSD-IP
+Exec=/home/pi/bin/osd-ip
