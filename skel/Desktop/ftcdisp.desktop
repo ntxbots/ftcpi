@@ -5,6 +5,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=FIRST Tech Challenge Live
-Exec=/home/pi/bin/ftcscore
+Exec=/home/pi/ftcpi/bin/ftcscore
 Icon=ftcscore-Default
 StartupNotify=true
