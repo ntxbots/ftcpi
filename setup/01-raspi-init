@@ -13,7 +13,7 @@ END_BASHALIASES
 x_remove_packages wolfram-engine lxplug-ptbatt
 
 FILES="
-  xbindkeys x11vnc xosd-bin ssvnc xdotool solaar gparted clonezilla 
+  xosd-bin xdotool solaar gparted clonezilla 
   sysbench guvcview gimp mpv tv-fonts
 "
 

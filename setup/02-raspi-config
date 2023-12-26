@@ -16,13 +16,12 @@ do_ssh 0
 do_vnc 0
 RASPI_CONFIG_END
 
-LIGHTDM=/etc/lightdm/lightdm.conf
-if grep -q "^#xserver-command=X" $LIGHTDM
-then
-  echo "Disabling screen blanking in $LIGHTDM";
-  sudo perl -n -p -i -e '
-    s/^\#xserver-command=.*/xserver-command=X -s 0/;
-  ' $LIGHTDM
-fi
-
+# LIGHTDM=/etc/lightdm/lightdm.conf
+# if grep -q "^#xserver-command=X" $LIGHTDM
+# then
+#   echo "Disabling screen blanking in $LIGHTDM";
+#   sudo perl -n -p -i -e '
+#     s/^\#xserver-command=.*/xserver-command=X -s 0/;
+#   ' $LIGHTDM
+# fi
 
