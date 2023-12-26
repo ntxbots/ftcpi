@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source $(dirname $0)/00-lib || exit 1;
+
+x_install_packages crudini
+
+WCFG=$HOME/.config/wayfire.ini
+
+crudini --merge $WCFG <<'END_CONFIG'
+[command]
+binding_pmterm = <super> KEY_T
+command_pmterm = pmterm
+binding_web = <super> KEY_B
+command_web = web
+binding_poweroff = <ctrl> <alt> <shift> KEY_PAGEDOWN
+command_poweroff = poweroff
+binding_reboot = <ctrl> <alt> <shift> KEY_PAGEUP
+command_reboot = reboot
+END_CONFIG

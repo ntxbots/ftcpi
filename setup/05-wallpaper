@@ -4,6 +4,6 @@ source $(dirname $0)/00-lib || exit 1
 
 pcmanfm --set-wallpaper $HOME/.config/dance-spirits.png
 
-cd $HOME/.config/pcmanfm/LXDE-pi
-[ -f desktop-items-0.conf ] || cp -a desktop-items-1.conf desktop-items-0.conf
-[ -f desktop-items-1.conf ] || cp -a desktop-items-0.conf desktop-items-1.conf
+# cd $HOME/.config/pcmanfm/LXDE-pi
+# [ -f desktop-items-0.conf ] || cp -a desktop-items-1.conf desktop-items-0.conf
+# [ -f desktop-items-1.conf ] || cp -a desktop-items-0.conf desktop-items-1.conf
